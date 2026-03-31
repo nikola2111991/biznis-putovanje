@@ -36,7 +36,7 @@ export function Navigation() {
           : "bg-transparent"
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <nav aria-label="Glavna navigacija" className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="font-heading text-xl font-bold text-text-primary italic">
           Biznis Putovanje
         </Link>
@@ -62,7 +62,8 @@ export function Navigation() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="flex flex-col gap-1.5 md:hidden cursor-pointer"
-          aria-label="Menu"
+          aria-label="Navigacija"
+          aria-expanded={mobileOpen}
         >
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}

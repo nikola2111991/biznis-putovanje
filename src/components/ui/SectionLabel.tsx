@@ -9,7 +9,7 @@ export function SectionLabel({ children, className }: SectionLabelProps) {
   return (
     <span
       className={cn(
-        "inline-block text-xs font-semibold uppercase tracking-[0.2em] text-accent-secondary font-mono",
+        "inline-block text-xs font-semibold uppercase tracking-[0.2em] text-burgundy font-mono",
         className
       )}
     >

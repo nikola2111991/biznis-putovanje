@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useId } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +12,7 @@ interface AccordionItemProps {
 
 export function AccordionItem({ question, answer, className }: AccordionItemProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const contentId = useId();
 
   return (
     <div
@@ -22,6 +23,8 @@ export function AccordionItem({ question, answer, className }: AccordionItemProp
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-controls={contentId}
         className="flex w-full items-center justify-between py-5 text-left cursor-pointer"
       >
         <span className="text-lg font-medium text-text-primary font-heading pr-4">
@@ -30,7 +33,7 @@ export function AccordionItem({ question, answer, className }: AccordionItemProp
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2 }}
-          className="flex-shrink-0 text-2xl text-accent-secondary"
+          className="flex-shrink-0 text-2xl text-burgundy"
         >
           +
         </motion.span>
@@ -38,6 +41,8 @@ export function AccordionItem({ question, answer, className }: AccordionItemProp
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
+            id={contentId}
+            role="region"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

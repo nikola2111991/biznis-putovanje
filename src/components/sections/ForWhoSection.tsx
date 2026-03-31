@@ -24,34 +24,36 @@ export function ForWhoSection() {
           </motion.div>
 
           <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+            {/* DA kolona */}
             <motion.div
               variants={fadeUp}
-              className="rounded-2xl border border-success/20 bg-bg-primary p-6 lg:p-8"
+              className="rounded-2xl border border-baby-yellow/20 bg-bg-primary p-6 lg:p-8"
             >
-              <h3 className="font-heading text-xl font-bold text-success mb-6">
+              <h3 className="font-heading text-xl font-bold text-baby-yellow mb-6">
                 {FOR_WHO.yes.title}
               </h3>
               <ul className="space-y-4">
                 {FOR_WHO.yes.items.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="mt-0.5 text-success">&#10003;</span>
+                    <span className="mt-0.5 text-baby-yellow">&#10003;</span>
                     <span className="text-text-secondary">{item}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
 
+            {/* NE kolona */}
             <motion.div
               variants={fadeUp}
-              className="rounded-2xl border border-danger/20 bg-bg-primary p-6 lg:p-8"
+              className="rounded-2xl border border-burgundy/20 bg-bg-primary p-6 lg:p-8"
             >
-              <h3 className="font-heading text-xl font-bold text-danger mb-6">
+              <h3 className="font-heading text-xl font-bold text-burgundy mb-6">
                 {FOR_WHO.no.title}
               </h3>
               <ul className="space-y-4">
                 {FOR_WHO.no.items.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="mt-0.5 text-danger">&#10007;</span>
+                    <span className="mt-0.5 text-burgundy">&#10007;</span>
                     <span className="text-text-secondary">{item}</span>
                   </li>
                 ))}

@@ -28,7 +28,7 @@ export function PainPointsSection() {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className="border-l-2 border-burgundy pl-6"
+                className="border-l-4 border-burgundy pl-4 sm:pl-6"
               >
                 <p className="text-lg text-text-secondary leading-relaxed">
                   {item}
