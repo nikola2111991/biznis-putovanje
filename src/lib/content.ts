@@ -8,6 +8,8 @@
 export const HERO = {
   eyebrow: "Tromesečno mentorstvo",
   title: "Biznis Putovanje",
+  tagline:
+    "Za tebe koja si spremna da kupiš kartu u jednom smeru i odeš all in u svom biznisu.",
   subtitle:
     "Za tebe koja nisi došla da se uklopiš u tuđe mape, nego si ovde da vodiš, da budeš plaćena, viđena i zapamćena.",
   cta: "Rezerviši svoje mesto",

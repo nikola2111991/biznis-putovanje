@@ -76,11 +76,21 @@ export function HeroSection() {
         </motion.div>
 
         <motion.p
-          custom={1.2}
+          custom={1.1}
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-8 text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
+          className="mt-8 font-heading text-xl sm:text-2xl md:text-3xl text-text-primary max-w-3xl mx-auto leading-snug italic"
+        >
+          {HERO.tagline}
+        </motion.p>
+
+        <motion.p
+          custom={1.4}
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="mt-6 text-base sm:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed"
         >
           {HERO.subtitle}
         </motion.p>
