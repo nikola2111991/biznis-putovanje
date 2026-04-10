@@ -56,18 +56,7 @@ export function PricingSection() {
             </Button>
           </motion.div>
 
-          {/* VIP opcija */}
-          <motion.div
-            variants={fadeUp}
-            className="mt-6 rounded-2xl border border-[var(--border-subtle)] bg-bg-secondary p-6"
-          >
-            <p className="text-xs font-semibold uppercase tracking-wider text-accent-secondary">
-              {PRICING.vip.label}
-            </p>
-            <p className="mt-2 text-sm text-text-secondary leading-relaxed">
-              {PRICING.vip.description}
-            </p>
-          </motion.div>
+          {/* VIP opcija - uklonjena */}
         </motion.div>
       </Container>
     </section>

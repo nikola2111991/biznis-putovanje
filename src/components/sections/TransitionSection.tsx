@@ -37,9 +37,11 @@ export function TransitionSection() {
           {TRANSITION.text}
         </h2>
 
-        <p className="mt-8 text-lg sm:text-xl text-text-secondary italic max-w-2xl mx-auto leading-relaxed font-heading">
-          {TRANSITION.subtitle}
-        </p>
+        {TRANSITION.subtitle && (
+          <p className="mt-8 text-lg sm:text-xl text-text-secondary italic max-w-2xl mx-auto leading-relaxed font-heading">
+            {TRANSITION.subtitle}
+          </p>
+        )}
 
         {/* Bottom decorative element */}
         <div className="flex items-center justify-center gap-3 mt-10">

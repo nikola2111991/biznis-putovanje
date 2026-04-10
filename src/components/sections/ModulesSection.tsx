@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import { MODULES } from "@/lib/content";
 
@@ -104,6 +105,13 @@ export function ModulesSection() {
               })}
             </div>
           </div>
+
+          {/* Dugme za platformu */}
+          <motion.div variants={fadeUp} className="mt-16 text-center">
+            <Button href="#" size="lg">
+              Kako izgleda platforma i koje lekcije su unutra &rarr;
+            </Button>
+          </motion.div>
         </motion.div>
       </Container>
     </section>

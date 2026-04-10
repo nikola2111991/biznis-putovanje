@@ -6,7 +6,7 @@ import { fadeUp, staggerContainer } from "@/lib/animations";
 import { STORY } from "@/lib/content";
 
 // Indices of paragraphs to render as pull quotes (large, italic, accent)
-const PULL_QUOTE_INDICES = [0, 5, 10];
+const PULL_QUOTE_INDICES = [0, 5, 9];
 
 export function StorySection() {
   return (

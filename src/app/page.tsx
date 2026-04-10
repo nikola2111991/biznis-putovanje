@@ -4,7 +4,6 @@ import { PainPointsSection } from "@/components/sections/PainPointsSection";
 import { TransitionSection } from "@/components/sections/TransitionSection";
 import { ModulesSection } from "@/components/sections/ModulesSection";
 import { IncludedSection } from "@/components/sections/IncludedSection";
-import { AboutSection } from "@/components/sections/AboutSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { ForWhoSection } from "@/components/sections/ForWhoSection";
 import { PricingSection } from "@/components/sections/PricingSection";
@@ -20,7 +19,7 @@ export default function Home() {
       <TransitionSection />
       <ModulesSection />
       <IncludedSection />
-      <AboutSection />
+      {/* AboutSection uklonjena */}
       <TestimonialsSection />
       <ForWhoSection />
       <PricingSection />

@@ -10,14 +10,13 @@ export const HERO = {
   title: "Biznis Putovanje",
   tagline:
     "Za tebe koja si spremna da kupiš kartu u jednom smeru i odeš all in u svom biznisu.",
-  subtitle:
-    "Za tebe koja nisi došla da se uklopiš u tuđe mape, nego si ovde da vodiš, da budeš plaćena, viđena i zapamćena.",
+  subtitle: "",
   cta: "Rezerviši svoje mesto",
 };
 
 export const STORY = {
   intro:
-    "Zamisli da sa 70 godina sediš na terasi svoje kuće, pijuckaš vino ili čaj, šta god preferiraš, i tvoji unuci te pitaju:",
+    "Zamisli da sa 80 godina sediš na terasi svoje kuće, pijuckaš vino ili čaj, šta god preferiraš, i tvoji unuci te pitaju:",
   question: `„Bako, kako si ti izgradila i postala sve što jesi, kakav je bio tvoj život i biznis?"`,
   paragraphs: [
     "Sigurno ne želiš imati dosadnu priču kako nisi izgradila ništa jer si se plašila toga i kako baš i nisi išla all in u svojim vizijama i željama.",
@@ -25,7 +24,6 @@ export const STORY = {
     "Želiš pričati o tome kako si bila hrabra da kažeš naglas šta stvarno želiš da radiš. Kako si drhtala dok si pričala o tome, dok si objavljivala ponudu i kako ti je to posle nekog vremena, postalo najnormalnija stvar.",
     "Kako si prvi put naplatila nešto što je do juče živelo samo u tvojoj glavi, pa si od 30€ došla do petocifrenih i šestocifrenih brojeva za svoje ponude. Kako si rasla sa svakom ponudom i kako si postajala sve bolja i bolja u tome.",
     "Želiš pričati o tome kakav uticaj si imala na druge ljude, koliko života si promenila i koliko bi pogrešila da si dozvolila da te strahovi i sumnje spreče u tome.",
-    "Želiš pričati kako te neuspeh nije ni plašio, nego pristajanje na život koji je bio premali za tebe.",
     "Pričaćeš kako si imala misiju, kako je možda i dalje imaš u 70im, ne sumnjam u to i kako je ona pokretač svega. Ta misija te držala noću budnom i kako je jedino logično imalo smisla da se sve to desi.",
     "Pričaćeš o tome kako ti je biznis omogućio da iskusiš toliko stvari. Pričaćeš im i pokazati koliko si bogata i koliko si bogato razmišljala svih ovih godina da bi bila tu gde jesi.",
     "Pričaćeš o svim onim uverenjima, strahovima i sumnjama koji su se nalazili u tvom koferu, kako si to prepakovala i odlučila zameniti sa novim drugačijim, znajući da su oni nasledili jedan novi kofer misli i uverenja samo zato jer si ti jednom izabrala živeti hrabro i drugačije.",
@@ -55,8 +53,7 @@ export const PAIN_POINTS = {
 
 export const TRANSITION = {
   text: "Dobrodošla u putovanje gde nećeš dobiti samo još jednu mapu, nego ćeš pronaći unutrašnji kompas koji će te odvesti do rezultata koje želiš.",
-  subtitle:
-    "Do biznisa koji je ekstenzija tebe i gde konačno uživaš, gde si konačno kao kod kuće ali okružena ženama koje imaju misiju.",
+  subtitle: "",
 };
 
 export const MODULES = [
@@ -170,7 +167,6 @@ export const FOR_WHO = {
       "Imaš misiju i želiš da je pretočiš u biznis koji zarađuje",
       "Spremna si da investiraš u sebe i svoj rast",
       "Želiš da se pojavljuješ autentično, ne po tuđem šablonu",
-      "Pametna si, sposobna, obrazovana i želiš više od prosečnog",
       "PLACEHOLDER: Milica da doda još 2-3 stavke",
     ],
   },
@@ -199,11 +195,7 @@ export const PRICING = {
     "3 bonus programa uključena",
     "Sve što Milica lansira dok si u programu",
   ],
-  vip: {
-    label: "VIP opcija za uplate u celosti",
-    description:
-      "VIP date u Beogradu ili Novom Sadu: 3-4 sata zajedno, ručak, pričamo o biznisu i pravimo biznis fotke (30+ fotografija koje možeš koristiti odmah za društvene mreže i vizuale).",
-  },
+  vip: null,
   installments: "Moguće plaćanje na rate.",
   cta: "Rezerviši svoje mesto",
   ctaHref: "https://instagram.com/PLACEHOLDER_MILICA_HANDLE",
