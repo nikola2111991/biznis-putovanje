@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import { Navigation } from "@/components/layout/Navigation";
-import { Footer } from "@/components/layout/Footer";
-import { StickyCTA } from "@/components/layout/StickyCTA";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -52,8 +50,6 @@ export default function RootLayout({
       <body className="antialiased">
         <Navigation />
         <main>{children}</main>
-        <Footer />
-        <StickyCTA />
       </body>
     </html>
   );
