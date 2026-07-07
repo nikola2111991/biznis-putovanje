@@ -8,25 +8,25 @@ import { MODULES } from "@/lib/content";
 
 const colorMap = {
   yellow: {
-    dot: "bg-baby-yellow",
-    line: "from-baby-yellow/40",
-    number: "text-baby-yellow/30",
-    bullet: "text-baby-yellow",
-    accent: "text-baby-yellow",
+    dot: "bg-gold",
+    line: "from-gold/40",
+    number: "text-gold/25",
+    bullet: "text-gold",
+    accent: "text-gold",
   },
   burgundy: {
     dot: "bg-burgundy",
     line: "from-burgundy/40",
-    number: "text-burgundy/30",
+    number: "text-burgundy/20",
     bullet: "text-burgundy",
     accent: "text-burgundy",
   },
   brown: {
     dot: "bg-brown-medium",
     line: "from-brown-medium/40",
-    number: "text-text-tertiary/30",
-    bullet: "text-text-tertiary",
-    accent: "text-text-tertiary",
+    number: "text-brown-medium/20",
+    bullet: "text-brown-medium",
+    accent: "text-brown-medium",
   },
 };
 
@@ -54,7 +54,7 @@ export function ModulesSection() {
           {/* Timeline layout */}
           <div className="relative max-w-3xl mx-auto">
             {/* Vertical connecting line */}
-            <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-baby-yellow/30 via-burgundy/30 to-brown-medium/30" />
+            <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-gold/40 via-burgundy/40 to-brown-medium/30" />
 
             <div className="space-y-16 sm:space-y-20">
               {MODULES.map((module, index) => {

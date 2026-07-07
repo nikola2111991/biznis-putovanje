@@ -6,12 +6,11 @@
 // ============================================================
 
 export const HERO = {
-  eyebrow: "Tromesečno mentorstvo",
+  eyebrow: "tvoje",
   title: "Biznis Putovanje",
-  tagline:
-    "Za tebe koja si spremna da kupiš kartu u jednom smeru i odeš all in u svom biznisu.",
+  tagline: "počinje ovde",
   subtitle: "",
-  cta: "Rezerviši svoje mesto",
+  cta: "Saznaj više",
 };
 
 export const STORY = {

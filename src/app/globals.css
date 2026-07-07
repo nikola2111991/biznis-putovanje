@@ -1,35 +1,53 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg-primary: #1A120B;
-  --color-bg-secondary: #231815;
-  --color-bg-tertiary: #3E2723;
+  /* Topao editorial svetli sistem - krem papir */
+  --color-bg-primary: #FBF8F2;
+  --color-bg-secondary: #F3EADD;
+  --color-bg-tertiary: #EADCC9;
 
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #D7CCC8;
-  --color-text-tertiary: #A89990;
+  --color-text-primary: #241811;
+  --color-text-secondary: #5B4A3E;
+  --color-text-tertiary: #927C6C;
 
   --color-accent-primary: #800020;
-  --color-accent-secondary: #FDFD96;
+  --color-accent-secondary: #B0803A;
 
   --color-burgundy: #800020;
+  --color-burgundy-deep: #5E0016;
+  --color-gold: #B0803A;
   --color-baby-yellow: #FDFD96;
-  --color-brown-dark: #1A120B;
-  --color-brown-medium: #3E2723;
+  --color-cream: #FBF8F2;
+  --color-brown-dark: #241811;
+  --color-brown-medium: #7A5C46;
 
-  --color-success: #34C759;
-  --color-danger: #FF3B30;
+  --color-success: #2E7D32;
+  --color-danger: #B00020;
 
   --font-sans: var(--font-dm-sans);
   --font-heading: var(--font-playfair);
+  --font-title: "Catchy Mager", var(--font-playfair), Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
+/* Catchy Mager - display font za hero naslov.
+   Ubaci fajl u /public/fonts/ (woff2 preferirano; otf/ttf rade kao fallback).
+   Dok fajla nema, browser koristi Playfair Display (sledeci u --font-title). */
+@font-face {
+  font-family: "Catchy Mager";
+  src: url("/fonts/catchy-mager.woff2") format("woff2"),
+       url("/fonts/catchy-mager.otf") format("opentype"),
+       url("/fonts/catchy-mager.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --accent-glow: rgba(128, 0, 32, 0.15);
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-medium: rgba(255, 255, 255, 0.10);
-  --border-accent: rgba(128, 0, 32, 0.3);
+  --accent-glow: rgba(128, 0, 32, 0.12);
+  --border-subtle: rgba(36, 24, 17, 0.09);
+  --border-medium: rgba(36, 24, 17, 0.16);
+  --border-accent: rgba(128, 0, 32, 0.28);
 }
 
 html {
@@ -41,29 +59,36 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   padding-bottom: 4.5rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Film grain overlay */
+/* Suptilna papirna tekstura */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
 
+/* Elegantni naslovi */
+h1, h2, h3, h4 {
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
 ::selection {
-  background: rgba(128, 0, 32, 0.3);
-  color: #FFFFFF;
+  background: rgba(128, 0, 32, 0.18);
+  color: var(--color-burgundy-deep);
 }
 
 /* Focus visible for keyboard navigation */
 *:focus-visible {
-  outline: 2px solid var(--color-accent-secondary);
+  outline: 2px solid var(--color-burgundy);
   outline-offset: 2px;
 }
 
@@ -80,18 +105,19 @@ body::after {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-primary);
+  background: var(--color-bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-bg-tertiary);
-  border-radius: 4px;
+  border-radius: 5px;
+  border: 2px solid var(--color-bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-tertiary);
+  background: var(--color-brown-medium);
 }

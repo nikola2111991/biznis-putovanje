@@ -44,8 +44,8 @@ export function TestimonialsSection() {
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-accent-primary/20 flex items-center justify-center">
-                    <span className="text-sm font-bold text-accent-secondary">
+                  <div className="h-10 w-10 rounded-full bg-burgundy/10 flex items-center justify-center">
+                    <span className="text-sm font-bold text-burgundy font-heading">
                       {t.name.charAt(0)}
                     </span>
                   </div>

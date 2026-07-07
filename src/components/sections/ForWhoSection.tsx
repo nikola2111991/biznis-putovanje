@@ -27,15 +27,15 @@ export function ForWhoSection() {
             {/* DA kolona */}
             <motion.div
               variants={fadeUp}
-              className="rounded-2xl border border-baby-yellow/20 bg-bg-primary p-6 lg:p-8"
+              className="rounded-2xl border border-gold/30 bg-bg-primary p-6 lg:p-8 shadow-[0_1px_2px_rgba(36,24,17,0.04)]"
             >
-              <h3 className="font-heading text-xl font-bold text-baby-yellow mb-6">
+              <h3 className="font-heading text-xl font-bold text-gold mb-6">
                 {FOR_WHO.yes.title}
               </h3>
               <ul className="space-y-4">
                 {FOR_WHO.yes.items.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="mt-0.5 text-baby-yellow">&#10003;</span>
+                    <span className="mt-0.5 text-gold">&#10003;</span>
                     <span className="text-text-secondary">{item}</span>
                   </li>
                 ))}
@@ -45,7 +45,7 @@ export function ForWhoSection() {
             {/* NE kolona */}
             <motion.div
               variants={fadeUp}
-              className="rounded-2xl border border-burgundy/20 bg-bg-primary p-6 lg:p-8"
+              className="rounded-2xl border border-burgundy/25 bg-bg-primary p-6 lg:p-8 shadow-[0_1px_2px_rgba(36,24,17,0.04)]"
             >
               <h3 className="font-heading text-xl font-bold text-burgundy mb-6">
                 {FOR_WHO.no.title}

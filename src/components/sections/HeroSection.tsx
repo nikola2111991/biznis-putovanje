@@ -1,127 +1,103 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
 import { HERO } from "@/lib/content";
 
-const letterVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: 0.3 + i * 0.04, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
-
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] as const },
   }),
 };
 
-export function HeroSection() {
-  const titleLetters = HERO.title.split("");
-
+/* 4-kraka zvezdica izmedju PUTO i VANJE u naslovu */
+function Sparkle() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Layered background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(128,0,32,0.15)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(253,253,150,0.04)_0%,transparent_40%)]" />
+    <svg
+      viewBox="0 0 100 100"
+      aria-hidden="true"
+      className="inline-block h-[0.42em] w-[0.42em] align-middle mx-[0.06em] -translate-y-[0.18em]"
+      fill="currentColor"
+    >
+      <path d="M50 0 C54 30 70 46 100 50 C70 54 54 70 50 100 C46 70 30 54 0 50 C30 46 46 30 50 0 Z" />
+    </svg>
+  );
+}
 
-      {/* Decorative lines */}
-      <div className="absolute top-1/4 left-0 w-32 h-px bg-gradient-to-r from-transparent via-burgundy/30 to-transparent hidden lg:block" />
-      <div className="absolute bottom-1/3 right-0 w-48 h-px bg-gradient-to-l from-transparent via-burgundy/20 to-transparent hidden lg:block" />
+export function HeroSection() {
+  return (
+    <section className="relative min-h-[100svh] w-full overflow-hidden bg-baby-yellow">
+      {/* Full-bleed pozadinska fotografija.
+          Ubaci fajl u /public/images/hero-milica.jpg (isti kadar sa balkona). */}
+      <Image
+        src="/images/hero-milica.jpg"
+        alt="Milica Pavić"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
 
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-24">
-        <motion.p
-          custom={0.15}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="font-heading italic text-text-secondary text-base sm:text-lg tracking-widest uppercase"
-        >
-          {HERO.eyebrow}
-        </motion.p>
+      {/* Suptilan preliv za citljivost belog teksta i dugmeta */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/30" />
 
-        {/* Letter-by-letter title reveal */}
-        <h1 className="mt-6 font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight">
-          {titleLetters.map((letter, i) => (
-            <motion.span
-              key={i}
-              custom={i}
-              variants={letterVariants}
-              initial="hidden"
-              animate="visible"
-              className="inline-block bg-gradient-to-b from-white via-white to-text-secondary bg-clip-text text-transparent"
-              style={letter === " " ? { width: "0.3em" } : undefined}
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </motion.span>
-          ))}
-        </h1>
-
-        <motion.div
-          custom={1.0}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mx-auto mt-8 flex items-center gap-4 justify-center"
-        >
-          <div className="h-px w-12 bg-gradient-to-r from-transparent to-burgundy/50" />
-          <div className="h-1.5 w-1.5 rounded-full bg-burgundy" />
-          <div className="h-px w-12 bg-gradient-to-l from-transparent to-burgundy/50" />
-        </motion.div>
-
-        <motion.p
-          custom={1.1}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mt-8 font-heading text-xl sm:text-2xl md:text-3xl text-text-primary max-w-3xl mx-auto leading-snug italic"
-        >
-          {HERO.tagline}
-        </motion.p>
-
-        {HERO.subtitle && (
+      {/* Naslovni blok preko slike */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center text-white">
+        <div className="w-full max-w-6xl">
           <motion.p
-            custom={1.4}
+            custom={0.5}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-6 text-base sm:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed"
+            className="font-heading italic text-2xl sm:text-3xl md:text-4xl md:translate-x-[6%]"
           >
-            {HERO.subtitle}
+            {HERO.eyebrow}
           </motion.p>
-        )}
 
-        <motion.div
-          custom={1.5}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mt-12"
-        >
-          <Button href="#cena" size="lg">
-            {HERO.cta} &rarr;
-          </Button>
-        </motion.div>
+          <motion.h1
+            custom={0.65}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="font-title uppercase leading-[0.92] tracking-tight mt-1 text-[10.5vw] md:mt-0 md:-mt-[0.12em] md:text-[clamp(4rem,8.2vw,8.5rem)] md:whitespace-nowrap"
+          >
+            Biznis{" "}
+            <span className="whitespace-nowrap">
+              Puto
+              <Sparkle />
+              vanje
+            </span>
+          </motion.h1>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
+          <motion.p
+            custom={0.85}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="font-heading italic text-2xl sm:text-3xl md:text-4xl mt-1 md:-mt-[0.1em] md:-translate-x-[6%]"
+          >
+            {HERO.tagline}
+          </motion.p>
+
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-12 bg-gradient-to-b from-burgundy/50 to-transparent"
-          />
-        </motion.div>
+            custom={1.05}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="mt-8 sm:mt-10 flex justify-center"
+          >
+            <Link
+              href="#o-meni"
+              className="bg-accent-primary px-8 py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#600018]"
+            >
+              {HERO.cta}
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
