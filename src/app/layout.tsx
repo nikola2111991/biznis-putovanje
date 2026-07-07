@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
-import { Navigation } from "@/components/layout/Navigation";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -48,7 +47,6 @@ export default function RootLayout({
   return (
     <html lang="sr" className={`${playfair.variable} ${dmSans.variable}`}>
       <body className="antialiased">
-        <Navigation />
         <main>{children}</main>
       </body>
     </html>
