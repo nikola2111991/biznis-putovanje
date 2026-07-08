@@ -4,48 +4,42 @@ import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "MOMENTUM · 7-dnevni challenge",
+  title: "MOMENTUM",
   description:
-    "7-dnevni mini intensive challenge za zene preduzetnice. Vrati momentum, kreiraj standarde, napravi masivnu akciju. Startuje 11.7.",
+    "7-dnevni mini intensive challenge za žene preduzetnice. Kreiraj momentum, postavi visoke standarde, napravi masivnu akciju. Startuje 12. jula.",
   openGraph: {
     type: "website",
     locale: "sr_RS",
     url: `${SITE_URL}/momentum`,
-    title: "MOMENTUM · 7-dnevni challenge",
+    title: "MOMENTUM",
     description:
-      "Vrati momentum, kreiraj standarde, napravi masivnu akciju. 7 dana. Startuje 11.7.",
-    images: [{ url: "/images/momentum-banner.jpg" }],
+      "7-dnevni mini intensive challenge. Kreiraj momentum. Startuje 12. jula.",
+    images: [{ url: "/images/momentum-hero.jpg" }],
   },
 };
 
-// TODO (Milica/Nikola): zameni pravim StanStore / checkout linkom za prijavu.
+// TODO (Milica/Nikola): zameni pravim StanStore / checkout linkom za kupovinu.
 const CHECKOUT_URL = "#prijava";
+
+const RESULTS = [
+  "Moj profil je skalirao. Preko 3000 novih ljudi je došlo na profil. Naučila sam kako kreirati sadržaj i prodavati, i do mene je došlo na desetine idealnih klijenata koji su krenuli sa mnom na putovanje.",
+  "Lansirala sam još 3 programa, 1na1 popunjen, klijenti su ulazili masivno i kreirali vrhunske rezultate. Ovog meseca idu još dva programa. Portal je otvoren.",
+  "Uložila sam 6k+ u svoju glavu i normalizovala visok nivo podrške i okruženje koje utiče povoljno na mene. Nema nazad.",
+  "Treniram redovno, kuvam i brinem o sebi kao najdražoj osobi, volim kako izgledam i kako se osećam. Puna energije i seksi. Nema više umorne verzije sa migrenama, to nije moja realnost.",
+  "Prodajem i pojavljujem se kao da kupujem mleko u prodavnici. Prirodno je.",
+];
 
 const OUTCOMES = [
   "postaviti visoke standarde",
-  "pociscati navike u svakodnevnici koje te zatrpavaju i tako lakse kreirati momentum",
-  "poceti da zavrsavas zapoceto",
+  "počistiti navike u svakodnevnici koje te zatrpavaju i gde je momentum lakše kreirati",
+  "početi da završavaš započeto",
   "napraviti konkretne pomake u svom biznisu",
   "aktivirati prodaju, vidljivost i komunikaciju",
-  "vratiti osecaj kontrole, energije i uzbudjenja oko svog biznis putovanja",
+  "vratiti osećaj kontrole, energije i uzbuđenja oko svog biznis putovanja",
 ];
 
-const ANSWERS = [
-  ["Kazes nemas jasnocu?", "Momentum kreira jasnocu."],
-  ["Kazes nema prodaje?", "Momentum kreira prodaju."],
-  ["Kazes nema novih ljudi na profilu?", "Momentumom se privlace novi ljudi."],
-  ["Kazes nisi bas okej sa sobom?", "Momentumom se kreira vrhunski standard i dobar osecaj."],
-];
-
-function Cta({ children }: { children: React.ReactNode }) {
-  return (
-    <Link
-      href={CHECKOUT_URL}
-      className="inline-flex items-center justify-center bg-[#8B0E1A] px-10 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-[#B01326] shadow-[0_0_40px_rgba(139,14,26,0.35)]"
-    >
-      {children}
-    </Link>
-  );
+function Diamond() {
+  return <span className="mt-2 h-2 w-2 flex-shrink-0 rotate-45 bg-[#B01326]" />;
 }
 
 export default function MomentumPage() {
@@ -54,195 +48,210 @@ export default function MomentumPage() {
       {/* Mini header */}
       <header className="mx-auto flex max-w-5xl items-center justify-between px-5 py-6 sm:px-8">
         <Link href="/" className="font-heading text-xl text-white/90 tracking-wide">
-          Milica Pavic
+          Milica Pavić
         </Link>
         <span className="text-xs uppercase tracking-[0.25em] text-white/50">
-          Startuje 11.7.
+          Startuje 12. jula
         </span>
       </header>
 
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,14,26,0.22)_0%,transparent_60%)]" />
-        <div className="relative mx-auto max-w-5xl px-5 pt-8 pb-16 text-center sm:px-8 sm:pt-12 sm:pb-24">
-          <p className="font-heading italic text-lg text-white/70 sm:text-xl">
-            7-dnevni mini intensive challenge
-          </p>
-
-          <div className="mx-auto mt-8 w-full max-w-3xl overflow-hidden rounded-lg border border-white/10">
-            <Image
-              src="/images/momentum-banner.jpg"
-              alt="MOMENTUM"
-              width={1290}
-              height={409}
-              priority
-              className="h-auto w-full"
-            />
-          </div>
-
-          <p className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-white/80">
-            Ostatak godine je rezervisan za masivnu akciju. Vrati momentum, kreiraj
-            standarde koji nisu mlohavi i iznenadi samu sebe sta mozes postici u kratkom
-            roku.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <Cta>Udji u MOMENTUM za 77&euro;</Cta>
-            <p className="text-sm text-white/50">
-              Sledecih 48h: Momentum + BONUS Ekspanzija za 77&euro;
-            </p>
-          </div>
+      {/* BANER slika odmah na početku */}
+      <section className="mx-auto max-w-4xl px-5 sm:px-8">
+        <div className="overflow-hidden rounded-lg border border-white/10">
+          <Image
+            src="/images/momentum-hero.jpg"
+            alt="MOMENTUM"
+            width={1080}
+            height={738}
+            priority
+            className="h-auto w-full"
+          />
         </div>
+        <p className="mt-6 text-center font-heading italic text-lg text-white/70 sm:text-xl">
+          7-dnevni mini intensive challenge
+        </p>
       </section>
 
-      {/* HOOK - narativ */}
-      <section className="mx-auto max-w-2xl px-5 py-16 sm:px-8 sm:py-24">
-        <blockquote className="border-l-2 border-[#8B0E1A] pl-6">
+      {/* PRIČA */}
+      <section className="mx-auto max-w-2xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="space-y-5 text-lg leading-relaxed text-white/80">
+          <p>
+            Prošle godine u ovo vreme sam fizički bila na istom mestu, piskarala neke
+            objave, objavljujući 2x u mesec dana, nemajući pojma ni ko je moj idealni
+            klijent, ni gde želim sa biznisom (iako sam mislila da sve to znam). Samo mi je
+            jasna bila želja da nešto veliko kreiram.
+          </p>
+          <p>
+            Tu i tamo sam imala neku konsultaciju, tu su ljudi, ali ne kako sam zamišljala.
+            Pažnja mi je bila disperzirana. Svuda po malo a nigde all in. I čudila se što se
+            ne dešava neki veliki prasak u mom biznisu.
+          </p>
+          <p>
+            To leto sam organizovala svoj prvi retreat, pokrenula klub 11:11 i usudila se
+            spomenuti biznis, kreirajući svoj prvi masterclass „biznis putovanje”. Sve je
+            prošlo... pa sjajno. Osetila sam ogromno uzbuđenje tih par dana.
+          </p>
+          <p>
+            Posle toga je ono nestalo i pitala sam se zašto se ne osećam tako dobro kao kad
+            sam vodila taj masterclass i pričala o biznisu? Zašto mi je nestalo uzbuđenje?
+          </p>
+          <p className="text-white/90">
+            Hah. Uzbuđenje je nestalo jer sam prestala da ga kreiram. Čekala sam da osećaj
+            dođe sam. Baš sam osetila da se puno krčkam u potencijalu a ne preduzimam puno.
+            I da ako moj biznis ima 10 nivoa, ja sam na prvom.
+          </p>
+        </div>
+
+        {/* Odluka */}
+        <blockquote className="my-12 border-l-2 border-[#8B0E1A] pl-6">
           <p className="font-heading text-2xl italic leading-snug text-white sm:text-3xl">
-            &bdquo;Ovo je moja godina.&rdquo;
+            Tog decembra sam glasno izgovorila... Fuk it, zašto ja imam mlohave standarde?
+            Zašto imam mlohave rezultate kad mi je potencijal ludilo?
           </p>
         </blockquote>
 
-        <div className="mt-8 space-y-5 text-lg leading-relaxed text-white/75">
-          <p>
-            Pocetkom godine si rekla: ove godine cu konacno napraviti ozbiljniju pricu.
-            Zaradjivacu vise nego ikad. Bicu dosledna, pojavljivacu se, privuci cu nove
-            klijentkinje.
+        <div className="space-y-5 text-lg leading-relaxed text-white/80">
+          <p>Dosta mi je vruće hladno, tu sam pa nisam tu. Znam li ja ko sam ja?</p>
+          <p className="font-heading text-xl italic text-white">
+            Znaš li ti ko si TI? Da, tebe pitam.
           </p>
+        </div>
+      </section>
+
+      {/* PLOT TWIST + REZULTATI */}
+      <section className="bg-[#120A0B] py-16 sm:py-20">
+        <div className="mx-auto max-w-2xl px-5 sm:px-8">
+          <p className="text-center font-heading text-2xl italic text-white/70 sm:text-3xl">
+            No... plot twist.
+          </p>
+
+          <div className="mt-10 text-lg leading-relaxed text-white/80">
+            <p>
+              Od decembra do danas? Od te odluke do danas? Prošlo je 7 meseci. Ja sam
+              fizički na istom mestu ali ništa nije isto.
+            </p>
+          </div>
+
+          <ul className="mt-10 space-y-5">
+            {RESULTS.map((item) => (
+              <li key={item} className="flex items-start gap-4">
+                <Diamond />
+                <span className="text-lg leading-relaxed text-white/85">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-10 space-y-5 text-lg leading-relaxed text-white/80">
+            <p>
+              Dok pišem ovaj landing page, šopingujem, spremam se za putovanje i festival
+              ovog leta... I u stomaku mi treperi od uzbuđenja jer pomislim:
+            </p>
+            <p className="border-l-2 border-[#8B0E1A] pl-6 font-heading text-xl italic text-white">
+              „Čekaj... snimaćemo lekcije sa plaže. Biću negde na moru i radiću nešto što
+              volim.”
+            </p>
+            <p>
+              I potpuno sam mirna. Jer znam kada radim a kada se ladim. Znam da mogu da
+              kreiram biznis koji podržava moj život, a ne život koji se vrti oko biznisa.
+            </p>
+            <p className="font-heading text-xl italic text-white">
+              Ja sam sanjala ovakav život. Ja se osećam živom.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* MOMENTUM lekcija */}
+      <section className="mx-auto max-w-2xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="space-y-5 text-lg leading-relaxed text-white/80">
           <p>
-            Nema vise igranja, nema vise na pola snage. Idem all in. Svet nije spreman za
-            ono sto imam u rukavu.
+            Tog decembra sam odlučila kolabirati vreme i nakon te odluke se nisam okrenula.
+            Kreirala sam momentum. Ozbiljan momentum. Bila sam posvećena akcijama koje
+            kreiraju visok, stabilan, održiv standard, na čijim temeljima su rezultati
+            neminovni. U par meseci se desilo ono što se nije desilo u prethodne 3 godine.
           </p>
           <p className="text-white/90">
-            I nekoliko meseci kasnije... Preciznije, proslo je 6 meseci. Jul vec odmice.
+            Najveća promena ipak nije broj klijenata. Nije novac. Nije rast profila.
+          </p>
+        </div>
+
+        <p className="my-10 font-heading text-3xl font-bold leading-snug text-white sm:text-4xl">
+          Najveća promena je što sam naučila kako da{" "}
+          <span className="text-[#B01326]">kreiram momentum.</span>
+        </p>
+
+        <p className="text-lg leading-relaxed text-white/80">
+          Onaj osećaj kada više ne krećeš ispočetka svakog ponedeljka, kada više ne zavisiš
+          od inspiracije, kada znaš šta radiš, kada završavaš ono što započneš, kada
+          prodaješ bez grča, kada si ti ponosna na sebe kad završi dan jer znaš da živiš
+          svoj potencijal.
+        </p>
+      </section>
+
+      {/* RECOGNITION */}
+      <section className="bg-[#120A0B] py-16 sm:py-20">
+        <div className="mx-auto max-w-2xl px-5 text-center sm:px-8">
+          <div className="space-y-4 text-lg leading-relaxed text-white/80">
+            <p>I možda upravo zato čitaš ovo.</p>
+            <p>Možda i ti osećaš da postoji mnogo više u tebi.</p>
+            <p>Da imaš ideje, znanje, želju.</p>
+            <p>Ali da nešto nedostaje kako bi sve to konačno počelo da se slaže.</p>
+            <p className="text-white/90">
+              Gde god da si u biznisu a osećaš da je ovo tek tvoj prvi nivo, na pravom si
+              mestu.
+            </p>
+          </div>
+          <p className="mx-auto mt-8 max-w-xl font-heading text-xl italic leading-snug text-white sm:text-2xl">
+            Vidim te gde bi mogla biti. Ti koja ovo čitaš imaš taj žar, tu vatru. Ne treba
+            da se krčkaš, ne treba narednih 6 meseci da filozofiraš i radiš na mindsetu.
+          </p>
+          <p className="mt-8 font-heading text-2xl font-bold text-white sm:text-3xl">
+            To se završava danas. <span className="text-[#B01326]">Treba ti MOMENTUM.</span>
           </p>
         </div>
       </section>
 
-      {/* STA SE DESILO */}
-      <section className="bg-[#120A0B] py-16 sm:py-24">
-        <div className="mx-auto max-w-2xl px-5 sm:px-8">
-          <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
-            Sta se desilo?
-          </h2>
-          <div className="mt-6 space-y-5 text-lg leading-relaxed text-white/75">
-            <p>
-              Svet nije video sta sve imas u rukavu. Negde duboko u sebi znas da nisi tamo
-              gde si mislila da ces biti. Znas da nije u pitanju trziste, nije ni algoritam,
-              nije ni do informacija, jer imas mnogo vise znanja nego ikada pre.
-            </p>
-            <p>Pa sta je onda? Mmm, ja znam.</p>
-          </div>
-
-          <p className="my-10 text-center font-title text-[10vw] uppercase tracking-tight text-[#B01326] sm:text-7xl">
-            Momentum.
+      {/* PONUDA */}
+      <section className="mx-auto max-w-2xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="border border-[#8B0E1A]/40 bg-[#120A0B] p-8 sm:p-10">
+          <p className="text-lg leading-relaxed text-white/80">
+            Zato sam kreirala jedan mini intensive challenge koji traje 7 dana. Ovo nije još
+            jedan program gde ćeš samo slušati informacije. Ovo je iskustvo kroz koje ćeš:
           </p>
-
-          <div className="space-y-5 text-lg leading-relaxed text-white/75">
-            <p className="text-white/90">Izgubila si ga.</p>
-            <p>
-              Krenula si pa odleprsala mentalno i energetski. Dobila inspiraciju, otvorio
-              ti se portal, napisala 15 ideja, ispricala drugarici, partneru, i onda ih
-              nisi realizovala.
-            </p>
-            <p>
-              Upisala jos jedan kurs jer si pomislila da ti fali jos znanja i onda u pola
-              shvatila da ne mozes ni to da ispratis, da uporno radis na mindsetu a da
-              nemas problem sa tim uopste.
-            </p>
-            <p>
-              Objavila nekoliko Reelsa i izgubila se negde u analiziranju istih. Dosao
-              jedan klijent i onda si naredne dve nedelje bila toliko fokusirana na tog
-              jednog klijenta da si potpuno prestala da gradis svoj biznis i da ga skaliras.
-            </p>
-            <p>
-              I sve se svodi na onih par momenata kada ti naidje toliko jak nalet
-              inspiracije da malo mrdnes, osetis uzbudjenje i onda flipnes.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* MOMENTUM JE ODGOVOR */}
-      <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
-        <p className="mx-auto mb-10 max-w-xl text-center text-lg italic text-white/70">
-          &bdquo;Ali za momentum mi treba jasnoca, feedback, podrska, jos ljudi, bolji
-          osecaj u telu...&rdquo;
-        </p>
-
-        <div className="divide-y divide-white/10 border-y border-white/10">
-          {ANSWERS.map(([q, a]) => (
-            <div key={q} className="flex flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:gap-4">
-              <p className="text-white/60 sm:w-1/2">{q}</p>
-              <p className="font-heading text-lg text-white sm:w-1/2">{a}</p>
-            </div>
-          ))}
+          <ul className="mt-8 space-y-4">
+            {OUTCOMES.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <Diamond />
+                <span className="text-white/85">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <p className="mt-10 text-center font-heading text-2xl font-bold leading-snug text-white sm:text-3xl">
-          Sta god da mi kazes, <span className="text-[#B01326]">momentum je odgovor.</span>
-        </p>
-      </section>
-
-      {/* PITCH */}
-      <section className="bg-[#120A0B] py-16 sm:py-24">
-        <div className="mx-auto max-w-2xl px-5 sm:px-8">
-          <div className="space-y-5 text-lg leading-relaxed text-white/75">
-            <p>
-              Ne zelim da narednih 6 meseci radis na mindsetu i puno filozofiras. Zelim da
-              se zaletis i iznenadis samu sebe sta mozes postici u kratkom roku. Jer ti jesi
-              ta. Ispred nosa je.
-            </p>
-            <p>
-              Portal je otvoren, samo je potrebno da kreiras standard i energetske temelje
-              gde neces flipnuti svaki peti dan. Jednom kada kreiras dokaz, boostovaces se
-              endorfinima i svim hormonima i neces stati.
-            </p>
-          </div>
-
-          <div className="mt-12 border border-[#8B0E1A]/40 bg-[#0B0A0A] p-8 sm:p-10">
-            <p className="font-heading text-2xl font-bold text-white sm:text-3xl">
-              Zato sam kreirala <span className="text-[#B01326]">MOMENTUM.</span>
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-white/75">
-              Mini intensive challenge koji traje 7 dana. Ovo nije jos jedan program gde ces
-              samo slusati informacije. Svaki dan te ceka zadatak. Ovo je iskustvo kroz koje
-              ces:
-            </p>
-
-            <ul className="mt-8 space-y-4">
-              {OUTCOMES.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rotate-45 bg-[#B01326]" />
-                  <span className="text-white/85">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* KAKO FUNKCIONISE */}
-      <section className="mx-auto max-w-2xl px-5 py-16 sm:px-8 sm:py-24">
-        <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
-          Kako funkcionise?
+        <h2 className="mt-14 font-heading text-3xl font-bold text-white sm:text-4xl">
+          Kako funkcioniše program?
         </h2>
-        <p className="mt-6 text-lg leading-relaxed text-white/75">
-          Traje 7 dana. U Telegram kanalu dolazim svaki dan sa jednim audio treningom,
-          nekim svojim iskustvom, dobices uvid kako ja sebe vodim i jednim zadatkom za tebe,
-          kako da ti uradis to za sebe.
-        </p>
-        <p className="mt-6 font-heading text-xl italic text-white/85">
-          Ovim momentumom kreiraces standarde koji nisu mlohavi.
-        </p>
-        <p className="mt-6 text-lg leading-relaxed text-white/75">
-          Ovo je za tebe koja od ovog trenutka ne prihvata vise mlohave standarde i ne zeli
-          da ima rezultate u biznisu koji su ispod njenog potencijala.
-        </p>
+        <div className="mt-6 space-y-5 text-lg leading-relaxed text-white/80">
+          <p>
+            Svaki dan dolazim da sa tobom podelim šta sam to ja radila, koji su to glavni
+            okidači i prekidači koji menjaju situaciju, tvoju svakodnevnicu i pojavljivanje.
+            Biće jednostavno i prosto, ali baš te tih stvari svi kiksaju. Nije da je nešto
+            unikatno kao saveti Milana Tarota.
+          </p>
+          <p>
+            I svaki dan dolazim sa jednim zadatkom za tebe. Akcija, pokret i kreiranje tog
+            osećaja.
+          </p>
+          <p className="text-white/90">
+            Startujemo 12. jula, traje 7 dana, sasvim dovoljno da se resetuješ i nikad više
+            ne okreneš. Meni je trebao jedan dan i jedna odluka tog decembra. Tebi jedan dan
+            i odluka ovog jula.
+          </p>
+        </div>
       </section>
 
       {/* BONUS */}
-      <section className="bg-[#120A0B] py-16 sm:py-24">
+      <section className="bg-[#120A0B] py-16 sm:py-20">
         <div className="mx-auto max-w-2xl px-5 sm:px-8">
           <div className="border border-[#B01326]/50 bg-gradient-to-b from-[#8B0E1A]/15 to-transparent p-8 sm:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#B01326]">
@@ -253,25 +262,25 @@ export default function MomentumPage() {
             </h2>
             <div className="mt-5 space-y-4 text-lg leading-relaxed text-white/80">
               <p>
-                Sama vrednost Ekspanzije prevazilazi ovo, tako da je ovo nesto najblesavije
-                sto sam uradila, ali bas zelim da kreiras momentum i da usput prodajes
+                Sama vrednost Ekspanzije prevazilazi ovo, tako da je ovo nešto najblesavije
+                što sam uradila, ali baš želim da kreiraš momentum i da usput prodaješ
                 ekspanzivno.
               </p>
               <p>
-                Ekspanzija je takodje izazov koji se sastoji od 14 audio aktivacija na temu
-                prodaje. Dodatni sut u dupe.
+                Ekspanzija je takođe izazov koji se sastoji od 14 audio aktivacija na temu
+                prodaje. Dodatni šut u dupe.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CENA / CTA */}
+      {/* CENA + CTA (jedini na kraju stranice) */}
       <section className="relative overflow-hidden py-20 sm:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,14,26,0.28)_0%,transparent_65%)]" />
         <div className="relative mx-auto max-w-xl px-5 text-center sm:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#B01326]">
-            Ponuda traje 48h
+            Cena u naredna 48h
           </p>
           <h2 className="mt-4 font-heading text-3xl font-bold text-white sm:text-4xl">
             Momentum + bonus Ekspanzija
@@ -284,30 +293,33 @@ export default function MomentumPage() {
 
           <ul className="mx-auto mt-8 max-w-sm space-y-3 text-left">
             <li className="flex items-start gap-3 text-white/80">
-              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rotate-45 bg-[#B01326]" />
+              <Diamond />
               <span>Pristup Momentumu do kraja godine</span>
             </li>
             <li className="flex items-start gap-3 text-white/80">
-              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rotate-45 bg-[#B01326]" />
+              <Diamond />
               <span>Pristup bonus Ekspanziji do kraja jula</span>
             </li>
             <li className="flex items-start gap-3 text-white/80">
-              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rotate-45 bg-[#B01326]" />
+              <Diamond />
               <span>Svaki dan audio trening i zadatak u Telegram kanalu</span>
             </li>
           </ul>
 
-          <div className="mt-10 flex flex-col items-center gap-4">
-            <Cta>Rezervisi svoje mesto</Cta>
-            <p className="font-heading text-lg italic text-white/80">
-              Cekam te unutra. Startujemo 11.7.
-            </p>
+          <div className="mt-12 flex flex-col items-center gap-5">
+            <Link
+              href={CHECKOUT_URL}
+              className="inline-flex w-full max-w-md items-center justify-center bg-[#8B0E1A] px-10 py-5 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-[#B01326] shadow-[0_0_50px_rgba(139,14,26,0.4)]"
+            >
+              Kupi MOMENTUM za 77&euro;
+            </Link>
+            <p className="font-heading text-lg italic text-white/80">Čekam te unutra.</p>
           </div>
         </div>
       </section>
 
       <footer className="border-t border-white/10 py-10 text-center">
-        <p className="font-heading text-lg italic text-white/70">Milica Pavic</p>
+        <p className="font-heading text-lg italic text-white/70">Milica Pavić</p>
         <p className="mt-2 text-xs text-white/40">MOMENTUM &middot; 7-dnevni challenge</p>
       </footer>
     </div>
