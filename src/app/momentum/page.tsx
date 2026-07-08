@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
-// TODO (Milica/Nikola): zameni pravim StanStore / checkout linkom za kupovinu.
-const CHECKOUT_URL = "#prijava";
+// Stripe payment link (MOMENTUM 77 EUR + bonus Ekspanzija).
+const CHECKOUT_URL = "https://buy.stripe.com/3cI7sLcUC60k4zQ3O21Jm0y";
 
 const RESULTS = [
   "Moj profil je skalirao. Preko 3000 novih ljudi je došlo na profil. Naučila sam kako kreirati sadržaj i prodavati, i do mene je došlo na desetine idealnih klijenata koji su krenuli sa mnom na putovanje.",
@@ -309,6 +309,8 @@ export default function MomentumPage() {
           <div className="mt-12 flex flex-col items-center gap-5">
             <Link
               href={CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex w-full max-w-md items-center justify-center bg-[#8B0E1A] px-10 py-5 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-[#B01326] shadow-[0_0_50px_rgba(139,14,26,0.4)]"
             >
               Kupi MOMENTUM za 77&euro;
