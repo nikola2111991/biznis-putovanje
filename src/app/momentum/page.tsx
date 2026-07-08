@@ -229,14 +229,13 @@ export default function MomentumPage() {
         </div>
 
         <h2 className="mt-14 font-heading text-3xl font-bold text-white sm:text-4xl">
-          Kako funkcioniše program?
+          Kako funkcioniše ovaj izazov?
         </h2>
         <div className="mt-6 space-y-5 text-lg leading-relaxed text-white/80">
           <p>
             Svaki dan dolazim da sa tobom podelim šta sam to ja radila, koji su to glavni
             okidači i prekidači koji menjaju situaciju, tvoju svakodnevnicu i pojavljivanje.
-            Biće jednostavno i prosto, ali baš te tih stvari svi kiksaju. Nije da je nešto
-            unikatno kao saveti Milana Tarota.
+            Biće jednostavno i prosto, ali baš te naizgled proste stvari menjaju sve.
           </p>
           <p>
             I svaki dan dolazim sa jednim zadatkom za tebe. Akcija, pokret i kreiranje tog
