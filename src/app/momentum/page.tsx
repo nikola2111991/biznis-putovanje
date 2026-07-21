@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Stripe payment link (MOMENTUM 77 EUR + bonus Ekspanzija).
+// Stripe payment link (MOMENTUM 77 EUR).
 const CHECKOUT_URL = "https://buy.stripe.com/3cI7sLcUC60k4zQ3O21Jm0y";
 
 const RESULTS = [
@@ -249,40 +249,15 @@ export default function MomentumPage() {
         </div>
       </section>
 
-      {/* BONUS */}
-      <section className="bg-[#120A0B] py-16 sm:py-20">
-        <div className="mx-auto max-w-2xl px-5 sm:px-8">
-          <div className="border border-[#B01326]/50 bg-gradient-to-b from-[#8B0E1A]/15 to-transparent p-8 sm:p-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#B01326]">
-              Bonus u naredna 48h
-            </p>
-            <h2 className="mt-3 font-heading text-3xl font-bold text-white sm:text-4xl">
-              Program Ekspanzija
-            </h2>
-            <div className="mt-5 space-y-4 text-lg leading-relaxed text-white/80">
-              <p>
-                Sama vrednost Ekspanzije prevazilazi ovo, tako da je ovo nešto najblesavije
-                što sam uradila, ali baš želim da kreiraš momentum i da usput prodaješ
-                ekspanzivno.
-              </p>
-              <p>
-                Ekspanzija je takođe izazov koji se sastoji od 14 audio aktivacija na temu
-                prodaje. Dodatni šut u dupe.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CENA + CTA (jedini na kraju stranice) */}
       <section className="relative overflow-hidden py-20 sm:py-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,14,26,0.28)_0%,transparent_65%)]" />
         <div className="relative mx-auto max-w-xl px-5 text-center sm:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#B01326]">
-            Cena u naredna 48h
+            Cena
           </p>
           <h2 className="mt-4 font-heading text-3xl font-bold text-white sm:text-4xl">
-            Momentum + bonus Ekspanzija
+            Momentum
           </h2>
 
           <div className="mt-8 flex items-baseline justify-center gap-2">
@@ -294,10 +269,6 @@ export default function MomentumPage() {
             <li className="flex items-start gap-3 text-white/80">
               <Diamond />
               <span>Pristup Momentumu do kraja godine</span>
-            </li>
-            <li className="flex items-start gap-3 text-white/80">
-              <Diamond />
-              <span>Pristup bonus Ekspanziji do kraja jula</span>
             </li>
             <li className="flex items-start gap-3 text-white/80">
               <Diamond />

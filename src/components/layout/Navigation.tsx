@@ -6,9 +6,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { NAV_ITEMS, SITE_AUTHOR } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+function Chevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 12 8"
+      aria-hidden="true"
+      className={cn(
+        "h-2 w-3 transition-transform duration-200",
+        open && "rotate-180"
+      )}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+    >
+      <path d="M1 1.5 6 6.5 11 1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -52,18 +71,67 @@ export function Navigation() {
           </Link>
 
           <div className="hidden items-center gap-8 lg:gap-12 md:flex">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "font-heading text-lg sm:text-xl transition-colors hover:text-burgundy",
-                  scrolled ? "text-text-secondary" : "text-white/90"
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) =>
+              item.children?.length ? (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenMenu(item.label)}
+                  onMouseLeave={() => setOpenMenu(null)}
+                >
+                  <button
+                    onClick={() =>
+                      setOpenMenu(openMenu === item.label ? null : item.label)
+                    }
+                    aria-expanded={openMenu === item.label}
+                    aria-haspopup="true"
+                    className={cn(
+                      "inline-flex cursor-pointer items-center gap-2 font-heading text-lg sm:text-xl transition-colors hover:text-burgundy",
+                      scrolled ? "text-text-secondary" : "text-white/90"
+                    )}
+                  >
+                    {item.label}
+                    <Chevron open={openMenu === item.label} />
+                  </button>
+
+                  <AnimatePresence>
+                    {openMenu === item.label && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute right-0 top-full min-w-[210px] pt-3"
+                      >
+                        <div className="overflow-hidden rounded-md border border-[var(--border-medium)] bg-bg-primary shadow-[0_12px_30px_rgba(36,24,17,0.14)]">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setOpenMenu(null)}
+                              className="block px-5 py-3.5 font-heading text-base tracking-wide text-text-primary transition-colors hover:bg-bg-secondary hover:text-burgundy"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "font-heading text-lg sm:text-xl transition-colors hover:text-burgundy",
+                    scrolled ? "text-text-secondary" : "text-white/90"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </div>
 
           <button
@@ -111,16 +179,36 @@ export function Navigation() {
             className="overflow-hidden bg-bg-primary/97 backdrop-blur-xl border-b border-[var(--border-subtle)] md:hidden"
           >
             <div className="flex flex-col gap-4 px-5 py-6 sm:px-8">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="font-heading text-xl text-text-secondary transition-colors hover:text-burgundy"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {NAV_ITEMS.map((item) =>
+                item.children?.length ? (
+                  <div key={item.label} className="flex flex-col gap-3">
+                    <span className="font-heading text-xl text-text-secondary">
+                      {item.label}
+                    </span>
+                    <div className="flex flex-col gap-3 border-l border-[var(--border-medium)] pl-4">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="font-heading text-lg tracking-wide text-text-primary transition-colors hover:text-burgundy"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="font-heading text-xl text-text-secondary transition-colors hover:text-burgundy"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
             </div>
           </motion.div>
         )}
