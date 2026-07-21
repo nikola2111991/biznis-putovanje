@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
-import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
+import { SITE_NAME, SITE_AUTHOR, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -18,17 +18,27 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} · Tromesečno biznis mentorstvo`,
-    template: `%s | ${SITE_NAME}`,
+    default: `${SITE_AUTHOR} · ${SITE_NAME}`,
+    template: `%s | ${SITE_AUTHOR}`,
   },
   description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "sr_RS",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} · Tromesečno biznis mentorstvo`,
+    title: `${SITE_AUTHOR} · ${SITE_NAME}`,
     description: SITE_DESCRIPTION,
+    images: [{ url: "/images/hero-milica.jpg", width: 4000, height: 6000 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_AUTHOR} · ${SITE_NAME}`,
+    description: SITE_DESCRIPTION,
+    images: ["/images/hero-milica.jpg"],
   },
   icons: {
     icon: "/favicon.ico",

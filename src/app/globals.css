@@ -30,9 +30,15 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* Catchy Mager - display font za hero naslov.
-   Ubaci fajl u /public/fonts/ (woff2 preferirano; otf/ttf rade kao fallback).
-   Dok fajla nema, browser koristi Playfair Display (sledeci u --font-title). */
+/* ============================================================
+   Catchy Mager (display font za hero naslov) - TRENUTNO ISKLJUCEN.
+   Fajl fonta jos ne postoji, pa je @font-face zakomentarisan da ne
+   bi svaki poseta pravila 3 neuspela (404) zahteva. Do tada se
+   koristi Playfair Display (sledeci u --font-title).
+
+   KAD STIGNE FONT: ubaci fajl u /public/fonts/catchy-mager.woff2
+   i odkomentarisi blok ispod. Nista drugo ne treba menjati.
+
 @font-face {
   font-family: "Catchy Mager";
   src: url("/fonts/catchy-mager.woff2") format("woff2"),
@@ -42,6 +48,7 @@
   font-style: normal;
   font-display: swap;
 }
+   ============================================================ */
 
 :root {
   --accent-glow: rgba(128, 0, 32, 0.12);

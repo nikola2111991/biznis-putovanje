@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "MOMENTUM",
   description:
     "7-dnevni mini intensive challenge za žene preduzetnice. Kreiraj momentum, postavi visoke standarde, napravi masivnu akciju. Startuje 12. jula.",
+  alternates: {
+    canonical: "/momentum",
+  },
   openGraph: {
     type: "website",
     locale: "sr_RS",

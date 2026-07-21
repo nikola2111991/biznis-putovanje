@@ -94,30 +94,28 @@ export function Navigation() {
                     <Chevron open={openMenu === item.label} />
                   </button>
 
-                  <AnimatePresence>
-                    {openMenu === item.label && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -6 }}
-                        transition={{ duration: 0.18 }}
-                        className="absolute right-0 top-full min-w-[210px] pt-3"
-                      >
-                        <div className="overflow-hidden rounded-md border border-[var(--border-medium)] bg-bg-primary shadow-[0_12px_30px_rgba(36,24,17,0.14)]">
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              onClick={() => setOpenMenu(null)}
-                              className="block px-5 py-3.5 font-heading text-base tracking-wide text-text-primary transition-colors hover:bg-bg-secondary hover:text-burgundy"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
+                  {/* Uvek u DOM-u (samo CSS sakriven) da bi link bio crawlable za pretragu */}
+                  <div
+                    className={cn(
+                      "absolute right-0 top-full min-w-[210px] pt-3 transition-all duration-200",
+                      openMenu === item.label
+                        ? "visible translate-y-0 opacity-100"
+                        : "pointer-events-none invisible -translate-y-1 opacity-0"
                     )}
-                  </AnimatePresence>
+                  >
+                    <div className="overflow-hidden rounded-md border border-[var(--border-medium)] bg-bg-primary shadow-[0_12px_30px_rgba(36,24,17,0.14)]">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setOpenMenu(null)}
+                          className="block px-5 py-3.5 font-heading text-base tracking-wide text-text-primary transition-colors hover:bg-bg-secondary hover:text-burgundy"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <Link

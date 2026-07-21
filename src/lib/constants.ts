@@ -2,7 +2,7 @@ export const SITE_URL = "https://biznis-putovanje.vercel.app";
 export const SITE_NAME = "Biznis Putovanje";
 export const SITE_AUTHOR = "Milica Pavić";
 export const SITE_DESCRIPTION =
-  "Tromesečni biznis mentorski program za žene preduzetnice. Pronađi svoj unutrašnji kompas.";
+  "Tvoje biznis putovanje počinje ovde. Milica Pavić, programi i podrška za žene preduzetnice koje grade biznis po svojoj meri.";
 
 export type NavItem = {
   label: string;
