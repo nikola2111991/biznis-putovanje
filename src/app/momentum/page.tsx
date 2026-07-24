@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Stripe payment link (MOMENTUM 77 EUR).
-const CHECKOUT_URL = "https://buy.stripe.com/3cI7sLcUC60k4zQ3O21Jm0y";
+// Stripe payment link (MOMENTUM 111 EUR).
+const CHECKOUT_URL = "https://buy.stripe.com/aFa9AT1bU3Sc6HY4S61Jm0C";
 
 const RESULTS = [
   "Moj profil je skalirao. Preko 3000 novih ljudi je došlo na profil. Naučila sam kako kreirati sadržaj i prodavati, i do mene je došlo na desetine idealnih klijenata koji su krenuli sa mnom na putovanje.",
@@ -264,7 +264,7 @@ export default function MomentumPage() {
           </h2>
 
           <div className="mt-8 flex items-baseline justify-center gap-2">
-            <span className="font-title text-7xl text-white sm:text-8xl">77</span>
+            <span className="font-title text-7xl text-white sm:text-8xl">111</span>
             <span className="font-heading text-2xl text-white/70">&euro;</span>
           </div>
 
@@ -286,7 +286,7 @@ export default function MomentumPage() {
               rel="noopener noreferrer"
               className="inline-flex w-full max-w-md items-center justify-center bg-[#8B0E1A] px-10 py-5 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-[#B01326] shadow-[0_0_50px_rgba(139,14,26,0.4)]"
             >
-              Kupi MOMENTUM za 77&euro;
+              Kupi MOMENTUM za 111&euro;
             </Link>
             <p className="font-heading text-lg italic text-white/80">Čekam te unutra.</p>
           </div>
